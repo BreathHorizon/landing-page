@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优惠码随机领取 - 灵息 AI</title>
+    <!-- Microsoft Clarity Tracking Script -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "uxr5iuubxb");
+    </script>
+    <!-- 使用 unpkg 镜像，中国大陆访问更稳定 -->
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <style>
+        @import url('https://fonts.loli.net/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .code-display {
+            letter-spacing: 0.05em;
+            font-family: monospace;
+        }
+        /* 强力闪烁动画用于警告 */
+        @keyframes pulse-red {
+            0%, 100% { background-color: #ef4444; }
+            50% { background-color: #b91c1c; }
+        }
+        .animate-warning {
+            animation: pulse-red 2s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-6 px-4 md:px-0">
+    <!-- 顶部严厉警告 -->
+    <div class="max-w-2xl mx-auto mb-6">
+        <div class="animate-warning text-white p-4 rounded-xl shadow-lg flex items-start gap-3 border-2 border-red-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <div>
+                <h3 class="font-black text-lg underline">高能预警：禁止违规领取</h3>
+                <p class="text-sm font-bold opacity-90">一个用户只能兑换一个兑换码。管理员后台实时监控中，凡是恶意领取多个或未加群领取的，系统将自动识别并直接【永久封禁账号】，不予解封！</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-slate-800 mb-2">灵息 AI 优惠码自助领取</h1>
+            <p class="text-slate-500 text-sm">请务必遵守领取规则，诚信使用</p>
+        </header>
+
+        <!-- 抽取卡片 -->
+        <div class="glass-card rounded-2xl shadow-xl p-8 mb-8 text-center border-t-4 border-indigo-500">
+            <div id="coupon-container" class="mb-6 h-16 flex items-center justify-center bg-slate-100 rounded-xl border-2 border-dashed border-slate-300">
+                <span id="coupon-text" class="text-xl md:text-2xl font-bold text-slate-400">请先验证加群状态</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <button onclick="showVerifyModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition-all transform active:scale-95 shadow-lg shadow-indigo-200">
+                    随机抽取优惠码
+                </button>
+                <button id="copy-btn" onclick="copyCoupon()" class="hidden bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-8 rounded-lg transition-all transform active:scale-95 shadow-lg shadow-emerald-200">
+                    复制优惠码
+                </button>
+            </div>
+            
+            <p id="toast" class="mt-4 text-sm font-medium text-emerald-600 opacity-0 transition-opacity">已成功复制到剪贴板</p>
+        </div>
+
+        <!-- 教程卡片 -->
+        <div class="bg-white rounded-2xl shadow-md p-8 border-l-4 border-slate-300">
+            <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </span>
+                详细兑换流程
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                    <div class="text-slate-600">
+                        打开 <a href="https://buy.ling.rest" target="_blank" class="text-indigo-600 font-medium hover:underline">buy.ling.rest</a>，点击 <span class="font-bold text-slate-800">100000积分</span> 商品。
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                    <div class="text-slate-600">
+                        输入您的常用邮箱。在 <span class="font-bold text-slate-800">优惠码</span> 处输入刚才领取的代码。
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                    <div class="text-slate-600">
+                        输入完毕后点击购买，此时价格将变为 <span class="text-emerald-600 font-bold">0元</span>。
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                    <div class="text-slate-600">
+                        购买后复制显示的 <span class="font-bold text-slate-800">兑换码</span>。
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                    <div class="text-slate-600">
+                        打开 <a href="https://ling.rest" target="_blank" class="text-indigo-600 font-medium hover:underline">ling.rest</a>，点击右上角头像 -> <span class="font-bold text-slate-800">设置</span> -> <span class="font-bold text-slate-800">积分</span>。
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm">6</div>
+                    <div class="text-slate-600">
+                        点击兑换码窗口，粘贴兑换码并 <span class="text-rose-500 font-bold underline">手动删除前面的卡号</span>，最后确认兑换即可。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="mt-10 text-center text-slate-400 text-xs">
+            &copy; 2026 灵息 AI - 智能驱动未来
+        </footer>
+    </div>
+
+    <!-- 加群验证弹窗 -->
+    <div id="verify-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-8 shadow-2xl border-2 border-indigo-500">
+            <div class="text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">领取资格核验</h3>
+                <p class="text-slate-600 mb-6">为了防止恶意领取，必须先加入官方QQ群：<br><span class="text-indigo-600 font-black text-xl">180522359</span></p>
+                
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6 text-left">
+                    <p class="text-xs text-amber-800 font-bold">警告：后台会自动比对群成员。若未加群而领取代码，会导致您的灵息 AI 账号被【永久锁定】。</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=YOUR_KEY_HERE&jump_from=webapi&authKey=YOUR_AUTH_KEY" target="_blank" class="bg-indigo-600 text-white font-bold py-3 rounded-xl hover:bg-indigo-700 transition-colors">
+                        立即加入QQ群
+                    </a>
+                    <button onclick="confirmJoined()" class="bg-slate-100 text-slate-700 font-bold py-3 rounded-xl hover:bg-slate-200 transition-colors border border-slate-200">
+                        我已加入，开始抽取
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隐藏的复制输入框 -->
+    <textarea id="hidden-copy-input" style="position: absolute; left: -9999px;"></textarea>
+
+    <script>
+        const couponCodes = [
+            "B21ZUDKU6Z6ZTM0J", "7R3OW3DS3GILAV0A", "DUFTQHPE9CEN8QOA", "DAKY6O0OOUKP9GSN",
+            "POYL7BVACITNQWHM", "AEYZRQ6B2QKMMDB7", "NAOHZUPQMZGAAGHN", "6WOQCGUBIK7HIG9E",
+            "CY4CC30F66L2WC70", "QLUPLYPIA3U3FURL", "OHKT7OZDRALAXG9D", "1JDLTEBTNRJNDYNV",
+            "0WXEEYHSERPEBM58", "MFJ3VMOADVJX54PL", "B5W75NWCATXAOQZW", "D6HREL6XPUFB9UM0",
+            "LMOTC2T9SYTCF0SD", "WHFS0PJSPDZRM8LN", "OZIVOVRPKPSEAYLV", "JPKFASDGJMMP19N7",
+            "WKDIICAWKFZWJRU2", "YPH15BXDHY8OMDFE", "XZKFDSGEGMJ0TM9X", "YM8CCGG8ODFSPNTM",
+            "BAPBRMONLO62NXCG", "LHYASHJVEMN9LDS7", "UUXCWTIO8QZANNYJ", "JESB00BFN6AY5RF5",
+            "VK9CZJI96KVFTZ7N", "3RGHF5AQXBAPAD9L", "FQYUGV3M95PXQFMB", "PXOBU2JOP0K6ELTL",
+            "CBUV1NDO6OS2ERLR", "0P5WVKCIAYXLHHMI", "XAR80YYR2TFQIV42", "RW7EZYM4VYL2GGQB",
+            "G6NAYJD15XZGGW5D", "K0JFCFUYBBBLXUKJ", "ZQUGPTBOSUQN06WS", "A7U49BEZPCFXL7IC",
+            "L1D4VWR8J5TNEZR5", "EYAR2TB6EGJCZVZR", "OM4WN0HVLJSFRUFT", "HS7Y2NF33MYK50OR",
+            "OHW9XKN7T97SHSJR", "XSD5D6BMRD0PTRLT", "ZPQQSHQBNYVVTEKL", "0JICBO7L1OMEKUSY",
+            "WYDSDYAVD0ZNYLG5", "IYUUHIYF6F5VHDWS", "OHDA1QS9NRTYWKFS", "DW3TY6XZ2M5PD0JI",
+            "RTOZTHYLGTDA5B33", "QCYTHH6ZV1JXPG6V", "W5X1RPCWWTBUWIMS", "G9JT3IKG8VD9OG5P",
+            "VNFNVU04YJAKWMYQ", "JT9RINKY1Z5ZZHNP", "YYS4ZQXRZJEQRRCE", "CHUKZO4FHZOZ6FME",
+            "7OOWFXLC5AI8QH3W", "IAZH3YRQRZG7YQTN", "N1NCNCKTSCBPGOHT", "AHLYFACKK7K5VU3N",
+            "GNM8M4KC7PLFEXNV", "ZPX5YJDMLCEQLSGX", "0I1QXQ9OM1ZZTALN", "2OHNFANTNCNBLTQP",
+            "ZIUEQSOJDWX7GFUB", "82GQUN6AX5PLPXFC", "NWNGSIDUJXLJHCOA", "WBXCK4ZMOPV2BHHZ",
+            "EAPNIMMZENAXRO4D", "XRMBSBL2NZJDSRF3", "Q4MYCKUS1OADW4BK", "7KZCJYFHXQ70QQZY",
+            "4W5SLNQAPE6B2OYG", "LLRHI34FEPM4WOU", "YSH3ZVROVOMINQO5", "QRRAAJTXRD1RTTK9",
+            "5AKOXSO08Y0VEWAU", "R8T0ZDRK5MUH8ZBW", "QBCOYQ2SM4SEPDMB", "UUQJFPXCFA3LXGYK",
+            "EMYSVFQLLKMJORRC", "FU4DES5SQP8MMWO7", "RDPQVJI37YHCDZTM", "WKS897SYCWAQZDBZ",
+            "T9VGE6BEQZI9HIHV", "YPUTC01TCYSJWLJF", "BGH22073IPWWCHTB", "1JIIBYBBHBPAERYM",
+            "PLTL67G9MY5ZSG46", "IJWNJNNYKVBKKFZE", "QLK7RPBOCKDUVSOR", "QT1KAIGVLYTHV811",
+            "ODOHSZN8KNVKKHUR", "CKTMG0IA1WRATWXD", "BZIFCLQJDEP8TYMP", "BFMM6LYXKTNDTIAB"
+        ];
+
+        let currentCoupon = "";
+
+        function showVerifyModal() {
+            document.getElementById('verify-modal').classList.remove('hidden');
+        }
+
+        function confirmJoined() {
+            document.getElementById('verify-modal').classList.add('hidden');
+            getRandomCoupon();
+        }
+
+        function getRandomCoupon() {
+            const index = Math.floor(Math.random() * couponCodes.length);
+            currentCoupon = couponCodes[index];
+            
+            const display = document.getElementById('coupon-text');
+            display.innerText = currentCoupon;
+            display.classList.remove('text-slate-400');
+            display.classList.add('text-indigo-600', 'code-display');
+            
+            document.getElementById('copy-btn').classList.remove('hidden');
+            document.getElementById('coupon-container').classList.remove('bg-slate-100');
+            document.getElementById('coupon-container').classList.add('bg-indigo-50', 'border-indigo-300');
+        }
+
+        function copyCoupon() {
+            if (!currentCoupon) return;
+            
+            const textarea = document.getElementById('hidden-copy-input');
+            textarea.value = currentCoupon;
+            textarea.select();
+            document.execCommand('copy');
+            
+            const toast = document.getElementById('toast');
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
