@@ -216,6 +216,7 @@
 
     <!-- 特性 Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-in-up delay-300">
+      <!-- 特性 1: 成人模式 -->
       <div class="bg-white dark:bg-dark-card border border-breath-red/20 dark:border-breath-red/10 rounded-2xl p-6 hover:border-breath-red transition-all relative overflow-hidden">
         <div class="absolute -right-4 -bottom-4 w-32 h-32 bg-breath-red/5 rounded-full blur-2xl"></div>
         <div class="flex items-center gap-3 mb-4">
@@ -224,7 +225,7 @@
           <span class="text-[10px] bg-breath-red text-white px-1.5 py-0.5 rounded ml-auto">UNRESTRICTED</span>
         </div>
         <p class="text-sm text-breath-gray dark:text-stone-400 mb-4 leading-relaxed">
-          内置 Gemini, DeepSeek, GLM 等特殊微调版本。已提前破限，解除安全限制，<span class="text-breath-red font-medium">可询问任何问题</span>。
+          内置 Gemini, DeepSeek, GLM 等特殊微调版本。已提前破线，解除安全限制，<span class="text-breath-red font-medium">可询问任何问题</span>。
         </p>
         <div class="flex flex-wrap gap-2 text-[10px]">
           <span class="px-2 py-1 rounded bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/5">Jailbroken</span>
@@ -232,6 +233,7 @@
         </div>
       </div>
 
+      <!-- 特性 2: 开发者生态 -->
       <div class="bg-white dark:bg-dark-card border border-stone-200 dark:border-dark-border rounded-2xl p-6 hover:border-blue-400/50 transition-all">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-500"><i class="fa-solid fa-code"></i></div>
@@ -243,6 +245,7 @@
         <a href="https://doc.breathai.top" class="text-xs text-blue-500 hover:underline">查看接入文档 &rarr;</a>
       </div>
 
+      <!-- 特性 3: 模型矩阵 -->
       <div class="bg-white dark:bg-dark-card border border-stone-200 dark:border-dark-border rounded-2xl p-6 hover:border-breath-gold/50 transition-all">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-8 h-8 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fa-solid fa-microchip"></i></div>
@@ -258,6 +261,7 @@
         </div>
       </div>
 
+      <!-- 特性 4: 云同步 -->
       <div class="bg-white dark:bg-dark-card border border-stone-200 dark:border-dark-border rounded-2xl p-6 hover:border-green-500/50 transition-all">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-8 h-8 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600"><i class="fa-solid fa-cloud"></i></div>
@@ -300,7 +304,7 @@
         <button onclick="closeLineModal()" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-white/5 flex items-center justify-center text-stone-500 hover:text-breath-text transition-colors"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-      <!-- 动态进度 Banner 包含刷新按钮 (增加文字) -->
+      <!-- 动态进度 Banner 包含刷新按钮 -->
       <div id="modal-status-banner" class="mb-4 px-4 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-300 bg-stone-100 text-stone-500 dark:bg-white/5 dark:text-stone-400 border border-stone-200/50 dark:border-white/5">
         <div class="flex items-center gap-2">
             <i id="status-icon" class="fa-solid fa-circle-notch fa-spin"></i>
@@ -354,11 +358,12 @@
         title: "选择对话线路",
         routes: [
           { id: 'chat-main', name: '官方主线路', domain: 'ask.ling.rest', icon: 'fa-globe', set: 'fa-solid', color: 'text-breath-text dark:text-white' },
-          { id: 'chat-yt', name: '亚太节点', domain: 'ask-yt.ling.rest', icon: 'fa-map-pin', set: 'fa-solid', color: 'text-blue-400' },
-          { id: 'chat-us', name: '美国高速节点', domain: 'ask-us.ling.rest', icon: 'fa-bolt', set: 'fa-solid', color: 'text-red-400' },
-          { id: 'chat-eo', name: '腾讯 EO 节点', domain: 'ask-eo.ling.rest', icon: 'fa-shield-halved', set: 'fa-solid', color: 'text-blue-600' },
+          { id: 'chat-eo-cn', name: '腾讯 EO 中国节点', domain: 'breath.hujiarong.site', icon: 'fa-shield-halved', set: 'fa-solid', color: 'text-blue-500' },
+          { id: 'chat-eo-int', name: '腾讯 EO 国际节点', domain: 'ask-eo.ling.rest', icon: 'fa-shield-halved', set: 'fa-solid', color: 'text-blue-600' },
           { id: 'chat-cf-std', name: 'Cloudflare 普通节点', domain: 'ask-cf.ling.rest', icon: 'fa-cloudflare', set: 'fa-brands', color: 'text-cf-orange' },
-          { id: 'chat-cf-premium', name: 'Cloudflare 优选节点', domain: 'ask-saas.ling.rest', icon: 'fa-bolt-lightning', set: 'fa-solid', color: 'text-amber-500' }
+          { id: 'chat-cf-premium', name: 'Cloudflare 优选节点', domain: 'ask-saas.ling.rest', icon: 'fa-bolt-lightning', set: 'fa-solid', color: 'text-amber-500' },
+          { id: 'chat-yt', name: '亚太节点', domain: 'ask-yt.ling.rest', icon: 'fa-map-pin', set: 'fa-solid', color: 'text-blue-400' },
+          { id: 'chat-us', name: '美国节点', domain: 'ask-us.ling.rest', icon: 'fa-bolt', set: 'fa-solid', color: 'text-red-400' }
         ]
       },
       buy: {
