@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>灵息 AI 用户协议与服务条款</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+    .agreement-content p, .agreement-content li { line-height: 1.85; }
+    .header-title { letter-spacing: 0.04em; }
+    .toc a { color: #4f46e5; }
+    .toc a:hover { text-decoration: underline; }
+    .anchor-offset { scroll-margin-top: 100px; }
+    code.kbd { background: #f3f4f6; padding: 0.1rem 0.35rem; border-radius: 0.25rem; border: 1px solid #e5e7eb; font-size: 0.85em; }
+  </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+  <div class="max-w-5xl mx-auto">
+    <header class="mb-6 sm:mb-8 flex justify-between items-center sticky top-0 bg-gray-100/90 py-3 sm:py-4 z-10 border-b border-gray-200 backdrop-blur">
+      <a href="/" class="inline-flex items-center gap-2 px-4 py-2 ml-2 sm:ml-4 text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
+        回到 灵息AI
+      </a>
+      <h1 class="text-lg font-semibold text-gray-700 hidden sm:block mr-2 sm:mr-4">用户协议与服务条款</h1>
+    </header>
+
+    <main class="bg-white shadow-xl rounded-2xl p-5 sm:p-10 border border-gray-100">
+      <div class="text-center mb-8 sm:mb-10">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-indigo-700 mb-2 header-title">灵息 AI 用户协议与服务条款</h1>
+        <p class="text-sm text-gray-500">发布/生效日期：2025 年 12 月 16 日</p>
+        <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <nav class="toc mb-10 p-4 sm:p-6 bg-indigo-50 border border-indigo-200 rounded-xl">
+        <h2 class="text-indigo-800 font-semibold mb-3">目录</h2>
+        <div class="grid sm:grid-cols-2 gap-y-2 gap-x-6 text-sm">
+          <a href="#ch1">第一章 定义与解释</a>
+          <a href="#ch2">第二章 服务范围与责任边界</a>
+          <a href="#ch3">第三章 账户注册与管理</a>
+          <a href="#ch4">第四章 用户等级与权限（含 Plus）</a>
+          <a href="#ch5">第五章 API 使用与密钥管理</a>
+          <a href="#ch6">第六章 高级模型使用规定</a>
+          <a href="#ch7">第七章 用户行为规范与禁止事项</a>
+          <a href="#ch8">第八章 数据、隐私与安全</a>
+          <a href="#ch9">第九章 知识产权与内容政策</a>
+          <a href="#ch10">第十章 费用、计费与退款（Plus）</a>
+          <a href="#ch11">第十一章 服务可用性与变更</a>
+          <a href="#ch12">第十二章 免责声明与风险提示</a>
+          <a href="#ch13">第十三章 第三方政策与合规</a>
+          <a href="#ch14">第十四章 出口管制与地域限制</a>
+          <a href="#ch15">第十五章 未成年人与教育用途</a>
+          <a href="#ch16">第十六章 反馈、开源与社区</a>
+          <a href="#ch17">第十七章 终止、违约与制裁措施</a>
+          <a href="#ch18">第十八章 通知、更新与解释权</a>
+          <a href="#ch19">第十九章 争议解决与法律适用</a>
+          <a href="#ch20">第二十章 客服与支持范围</a>
+          <a href="#appendix">附件：术语、示例与政策摘要</a>
+        </div>
+      </nav>
+
+      <div class="agreement-content text-gray-700 space-y-10">
+        <section id="ch1" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第一章 定义与解释</h2>
+          <ul class="list-disc ml-6 space-y-2">
+            <li>灵息 AI/本平台：指为用户提供多模型聚合访问的工具与服务平台（网站、客户端、接口等）。</li>
+            <li>第三方模型/供应商：指由 OpenAI、Google DeepMind、Anthropic、DeepSeek、阿里云、百度、智谱 AI 等第三方提供的模型与服务。</li>
+            <li>普通用户（免费版）：指注册后未开通 Plus 的用户，仅可通过平台界面进行交互，<strong>不提供任何 API 权限</strong>。</li>
+            <li>Plus 用户：指通过登记审核并完成付费（如适用）后，获得更高使用层级与 API 权限的用户。</li>
+            <li>高级模型：因成本、风险或供应商限制而需更严格审核与限制的模型。</li>
+            <li>API：指通过编程方式（如 HTTP/SDK）调用平台提供的接口进行模型交互的能力。</li>
+            <li>服务范围/支持范围：指平台承诺提供的可支持事项；未明确包含在服务范围的事项，平台不承担支持义务。</li>
+            <li>滥用：包括但不限于突破限流、批量生成、外部代调用、规避风控、恶意负载等。</li>
+          </ul>
+        </section>
+
+        <section id="ch2" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第二章 服务范围与责任边界</h2>
+          <p>灵息 AI 为用户提供第三方模型的技术接入与聚合体验，不拥有、不控制、不干预、不修改第三方模型的算法与逻辑。本平台仅提供连接、编排、调度与基础风控能力。</p>
+          <ul class="list-disc ml-6 mt-2 space-y-1">
+            <li><strong>所有模型输出均由第三方模型自动生成，与本平台无关。</strong></li>
+            <li>本平台不对输出内容的准确性、完整性、合法性、可执行性做出任何承诺或保证。</li>
+            <li>用户应自行核验并对使用结果承担全部责任。</li>
+            <li>平台可基于安全、合规、成本与服务质量对接入的模型、功能与配额进行调整或下线。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">2.1 API 权限不等于支持义务</h3>
+          <p><strong>Plus 用户拥有 API 权限</strong>，但 API 属于“自助能力”，平台仅提供接口的基础可用性与必要的风控限制。<strong>API 不构成平台的客服支持范围</strong>，包括但不限于：</p>
+          <ul class="list-disc ml-6 mt-2 space-y-1">
+            <li>任何第三方应用程序是否支持 API、是否兼容本平台接口。</li>
+            <li>应用程序配置问题（参数、代理、证书、网络环境、环境变量等）。</li>
+            <li>用户自行开发/集成 API 的开发问题（代码错误、鉴权错误、SDK/库兼容、并发架构等）。</li>
+            <li>用户因误用 API 导致的成本、用量、封禁、业务损失等后果。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">2.2 “平台不可用”与“模型表现不好”的边界</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>平台不可用：指登录、会话、路由、Open WebUI 端交互无法正常使用等平台侧故障，属于可支持范围（见第二十章）。</li>
+            <li>模型表现：指幻觉、编造、错误回答、低质量内容、跑题等输出质量问题，属于第三方模型行为，<strong>不在支持范围</strong>。</li>
+          </ul>
+        </section>
+
+        <section id="ch3" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第三章 账户注册与管理</h2>
+          <h3 class="text-xl font-semibold text-indigo-600 mb-1">3.1 信息真实性</h3>
+          <p>注册信息需真实、准确、完整，并及时更新。因信息不实导致的后果由用户自行承担。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">3.2 账户数量限制</h3>
+          <p>每位自然人/法人最多可拥有 <strong>5 个灵息账户</strong>。如发现恶意多开、批量注册或规避设备指纹，将直接封禁账号、设备与 IP。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">3.3 账户安全</h3>
+          <p>用户对其账户、令牌、密码等安全要素承担全部保管责任。因保管不当导致的损失由用户自行承担。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">3.4 身份校验</h3>
+          <p>为保障合规与风控，平台可能要求进行邮箱/手机号验证、二步验证、实名/企业认证（如适用）。未按要求完成者，功能可能受限或无法使用。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">3.5 风控与异常行为</h3>
+          <p>为保护平台稳定性与全体用户公平性，平台可能对异常登录、异常用量、疑似共享/代调用、疑似自动化滥用等行为进行验证、限流、冻结或封禁。用户应配合完成必要验证，否则服务可能受限。</p>
+        </section>
+
+        <section id="ch4" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第四章 用户等级与权限（含 Plus）</h2>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mb-1">4.1 普通用户（免费版）</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>可在平台界面内使用部分模型与功能。</li>
+            <li><strong>不提供 API 权限：无 API Key、无编程调用、无第三方集成。</strong></li>
+            <li>适用公平使用策略与动态限额，<strong>具体限流/配额参数不公开</strong>。</li>
+            <li>支持渠道以社区/公告为主，属于有限支持（见第二十章）。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">4.2 Plus 用户（登记/审核）</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>拥有更高的使用层级：更高并发、配额、上下文长度与优先队列（以页面公示为准）。</li>
+            <li>开放 <strong>API 权限</strong>：可申请并管理 API Key，进行编程调用。</li>
+            <li><strong>重要说明：</strong>Plus 提供的是“权限与资源等级”，不代表平台对 API 集成、应用配置、开发调试提供支持；API 不在支持范围（见第二章与第二十章）。</li>
+            <li>若持续滥用或大批量外部代调用，<strong>将被限制或封禁</strong>，不因 Plus 身份而豁免。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">4.3 Plus 用户登记流程</h3>
+          <ol class="list-decimal ml-6 space-y-1">
+            <li>在账户设置页提交登记申请，说明合理、真实、明确的使用场景与需求规模。</li>
+            <li>阅读并确认同意 API 与高级模型使用规范。</li>
+            <li>如涉及付费，完成支付与开通；如需企业资质或实名，按指引完成验证。</li>
+            <li>平台进行合规与风控审核；平台保留<strong>无条件通过或拒绝</strong>的权利。</li>
+          </ol>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">4.4 升降级与资格撤销</h3>
+          <p>平台可基于风险、成本、合规或服务质量原因，调整用户等级、权限与配额；对于滥用、造假、共享账号等行为，平台可随时撤销 Plus 权限并采取封禁措施。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">4.5 权限的个体化与差异</h3>
+          <p>由于供应商政策、成本波动、风险等级、区域与合规要求不同，Plus 用户之间可能存在可用模型、配额与功能差异。平台以控制台展示与公告为准。</p>
+        </section>
+
+        <section id="ch5" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第五章 API 使用与密钥管理</h2>
+          <h3 class="text-xl font-semibold text-indigo-600 mb-1">5.1 免费版不提供 API</h3>
+          <p><strong>免费版不提供任何 API 权限。</strong>免费用户不得通过任何形式模拟、抓取、代理或中转以实现编程调用。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">5.2 Plus API 权限（自助能力）</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>API Key 为个人或组织专属，不得共享、出租、转借、售卖或用于外部代调用。</li>
+            <li>仅可用于申请时承诺的自有业务场景；变更用途须重新登记。</li>
+            <li>严禁将本平台 API 封装为对外服务、SDK、代理节点或竞品能力。</li>
+            <li><strong>API 不在平台支持范围内：</strong>平台不负责用户侧的应用适配、参数配置、开发调试、性能调优与错误排查。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">5.3 配额、并发与限流</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>平台采用<strong>动态限额策略</strong>；为保障风控，<strong>不公开具体阈值与参数</strong>。</li>
+            <li>配额、QPS、并发与速率限制以控制台/公告为准，平台可动态调整。</li>
+            <li>禁止通过多账户、并行队列、代理池等方式规避限流。</li>
+            <li>一旦判定为滥用，平台可立即限制或封禁账号、设备与 IP。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">5.4 密钥安全与合规</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>用户应安全存储 API Key，密钥泄露后果自负。</li>
+            <li>应在后端安全环境调用，避免在前端或客户端硬编码暴露。</li>
+            <li>应遵守第三方供应商政策、出口管制与当地法律。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">5.5 SDK、代理与第三方集成</h3>
+          <p>对第三方 SDK/代理/自动化工具的使用，需同时遵守本协议及第三方条款；如对稳定性或合规构成风险，平台可限制或下线相关集成。用户因使用第三方工具导致的错误、封禁、数据泄露与损失由用户自行承担。</p>
+        </section>
+
+        <section id="ch6" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第六章 高级模型使用规定（重点强化）</h2>
+          <h3 class="text-xl font-semibold text-indigo-600 mb-1">6.1 模型分级机制</h3>
+          <p>模型分为普通模型与高级模型。高级模型因资源成本、供应商限制或滥用风险更高，需额外审核或邀测方可启用。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">6.2 申请要求</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>提交合理、真实、明确的使用理由与规模预估。</li>
+            <li>承诺不滥用、不共享、不出租、不转借账号或密钥。</li>
+            <li>承诺不进行批量生成、商业外包、竞品封装或外部代调用。</li>
+            <li>遵守所有模型供应商的使用政策与限制。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">6.3 管理员审核与撤销权</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li><strong>管理员有权无条件决定是否通过审核，无需提供理由。</strong></li>
+            <li><strong>管理员有权随时撤销高级模型权限，无需提前通知，也无须说明理由。</strong></li>
+            <li>出现滥用、造假、高频攻击、共享账号等行为，平台可永久封禁账号、设备与 IP。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">6.4 使用限制</h3>
+          <p>高级模型禁止用于商业对外服务、二次分发、批量任务或任何形式的外部提供服务。违规将立即封禁。</p>
+        </section>
+
+        <section id="ch7" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第七章 用户行为规范与禁止事项</h2>
+          <h3 class="text-xl font-semibold text-indigo-600 mb-1">7.1 内容红线</h3>
+          <p>禁止生成或传播违法、暴力、色情、侵权、诈骗、谣言、仇恨与歧视等内容。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">7.2 技术与访问滥用</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>禁止破解、攻击、逆向工程或干扰平台系统与风控。</li>
+            <li>禁止使用脚本、爬虫、自动化工具规避限流与配额。</li>
+            <li>禁止外部代调用、流量中转、分流与二次封装为对外产品。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">7.3 QPS/并发限制</h3>
+          <p>平台基于公平使用原则设置 QPS、并发与配额；平台采用<strong>动态限额</strong>且<strong>不公开具体参数</strong>。一旦发现规避行为或异常负载，将立即采取限制、冻结或封禁。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">7.4 账号共享与外部代用</h3>
+          <p>严禁共享账号、共享 API Key、将能力提供给非登记主体使用或对外收费提供服务。平台有权对相关账号、设备与 IP 采取即时制裁，并可能追究法律责任。</p>
+        </section>
+
+        <section id="ch8" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第八章 数据、隐私与安全</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>平台可能为计费、风控、服务改进而收集必要的日志与元数据（如时间、路径、用量、状态、设备与网络特征）。</li>
+            <li>平台采取合理技术与管理措施保护数据安全，但不对绝对安全作出保证。</li>
+            <li>用户应避免上传敏感信息；如需处理敏感数据，应确保具备合法授权与合规基础。</li>
+            <li>日志与数据保留周期以隐私政策或控制台公告为准；用户可按指引申请删除（法律法规另有规定除外）。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">8.1 数据最小化与风险自担</h3>
+          <p>平台建议用户遵循“最小化输入”原则：不输入不必要的个人信息、机密信息、身份证件、账号密码、私钥与未公开商业资料。用户因自行上传或分享导致的泄露风险由用户自行承担。</p>
+        </section>
+
+        <section id="ch9" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第九章 知识产权与内容政策</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>用户对其上传的内容拥有合法权利，并对由此引发的争议与风险负责。</li>
+            <li>模型输出内容的权利与约束，须同步遵守对应第三方供应商的政策与当地法律。</li>
+            <li>平台或其关联方拥有网站/客户端的界面、代码与文档等的知识产权与权利保留。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">9.1 侵权投诉与处置</h3>
+          <p>如平台收到合理的侵权投诉或合规要求，平台有权在不预先通知的情况下采取必要措施，包括但不限于内容限制、模型禁用、账号限制或配合取证。用户应依法自行解决由其内容引发的纠纷。</p>
+        </section>
+
+        <section id="ch10" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十章 费用、计费与退款（Plus）</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>Plus 为增值服务，可能按订阅、用量或混合模式计费，以页面公示与订单为准。</li>
+            <li>已支付费用原则上不予退还，除非法律规定或平台另行明示的退款政策。</li>
+            <li>如用户存在滥用、违约或违规，平台可暂停或终止服务且不予退款。</li>
+            <li>如涉及自动续费，续费规则、发票与税费以支付页面与账单为准。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">10.1 价格与权益调整</h3>
+          <p>平台可因供应商成本、汇率、合规与运营策略调整价格与权益结构。已生效订单按订单约定执行；新价格适用于调整后的新订单或续费订单（如适用）。</p>
+        </section>
+
+        <section id="ch11" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十一章 服务可用性与变更</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>平台不对服务的持续可用性、实时性或无故障运行作出保证。</li>
+            <li>平台可因维护、升级、供应商变更、法律合规要求而调整或中断服务。</li>
+            <li>为应对滥用风险与弹性资源调度，平台实行<strong>动态限额</strong>并可随时调整；<strong>不公开具体参数</strong>。</li>
+            <li>重大变更将通过站内通知、邮件或公告进行提示。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">11.1 不可抗力</h3>
+          <p>因不可抗力或第三方原因（包括但不限于云服务故障、上游模型供应商中断、网络运营商故障、政策变化、自然灾害等）导致的服务中断或异常，平台在法律允许范围内免责或限责。</p>
+        </section>
+
+        <section id="ch12" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十二章 免责声明与风险提示</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>模型输出可能包含错误、幻觉、不完整或不准确信息。</li>
+            <li>生成的代码可能存在逻辑错误、漏洞或无法编译/执行。</li>
+            <li><strong>平台不保证任何输出内容的正确性、完整性或适用性，相关风险由用户自行承担。</strong></li>
+            <li>对因使用或无法使用本服务导致的直接或间接损失，平台在法律允许范围内免责或限责。</li>
+            <li><strong>API 不在支持范围内：</strong>用户因 API 集成/开发/配置导致的问题与损失由用户自行承担。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">12.1 风险提示</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>请勿将模型输出作为医疗、法律、投资等高风险决策的唯一依据。</li>
+            <li>涉及敏感业务、合规审核、对外发布内容时，建议进行人工复核与专业审查。</li>
+            <li>使用自动化或批量任务前，请评估成本、限流与封禁风险。</li>
+          </ul>
+        </section>
+
+        <section id="ch13" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十三章 第三方政策与合规</h2>
+          <p>用户必须遵守第三方模型供应商的政策，包括但不限于 OpenAI、Google DeepMind、Anthropic、DeepSeek、阿里云、百度、智谱 AI 等。若用户违反供应商政策，本平台可按对方要求对用户采取警告、限制或永久封禁措施。</p>
+        </section>
+
+        <section id="ch14" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十四章 出口管制与地域限制</h2>
+          <p>用户应遵守适用的出口管制、制裁与贸易合规要求。对于受限地区、个人或实体，平台可拒绝提供服务或采取限制措施。</p>
+        </section>
+
+        <section id="ch15" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十五章 未成年人与教育用途</h2>
+          <p>未成年人应在监护人指导下使用平台并遵循本协议。用于教育场景时，应由合规主体负责内容审核与使用规范。平台不对教育成果、作业正确率、考试成绩等作出任何承诺。</p>
+        </section>
+
+        <section id="ch16" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十六章 反馈、开源与社区</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>用户可向平台提交反馈与建议；平台有权决定是否采纳，且不因采纳而承担付费义务。</li>
+            <li>如平台提供开源组件，需遵守对应开源许可证。</li>
+            <li>社区交流应遵守基本礼仪与法律法规；平台可对影响社区秩序的行为采取禁言、移除或封禁措施。</li>
+          </ul>
+        </section>
+
+        <section id="ch17" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十七章 终止、违约与制裁措施</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>平台可基于合规与风控，随时对违规/高风险账户采取限制、冻结或终止服务。</li>
+            <li>对严重滥用（含 Plus），平台可永久封禁账号、设备与 IP，并保留追究法律责任的权利。</li>
+            <li>用户可按流程申请注销账户；法律法规或账务未结清的情形下，平台可暂缓处理。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">17.1 违约成本</h3>
+          <p>用户因违反本协议、供应商政策或法律法规导致的处罚、赔偿、律师费、调查成本与平台损失，由用户自行承担。平台有权在法律允许范围内向用户追偿。</p>
+        </section>
+
+        <section id="ch18" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十八章 通知、更新与解释权</h2>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>本协议可能随时更新；新版发布后立即生效，用户继续使用即视为同意。</li>
+            <li>平台可通过站内信、邮件、弹窗或公告进行通知。</li>
+            <li>本协议条款标题仅为方便阅读，不影响条款之解释。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">18.1 分条可分割</h3>
+          <p>若本协议任何条款被认定为无效或不可执行，不影响其他条款的效力与可执行性；双方应以合法有效且最接近原意的条款替代。</p>
+        </section>
+
+        <section id="ch19" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第十九章 争议解决与法律适用</h2>
+          <p>本协议之订立、效力、解释、履行与争议解决，适用平台运营地法律。双方应首先友好协商；协商不成的，任一方可向平台运营地有管辖权的人民法院提起诉讼。</p>
+        </section>
+
+        <section id="ch20" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">第二十章 客服与支持范围</h2>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mb-1">20.1 服务渠道与等级</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li><strong>免费用户：</strong>仅提供有限的社区支持与公告指引（例如常见问题、已知故障通告、社区群内交流）。平台不承诺响应时效与处理优先级。</li>
+            <li><strong>付费/Plus 用户：</strong>可在站内通过<strong>私信/反馈</strong>功能提交问题与建议，享有更优先的支持队列，但平台仍不提供 SLA/固定响应时间承诺。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">20.2 平台可支持事项（仅限 Open WebUI 端）</h3>
+          <p>平台仅对以下类型问题提供合理范围内的支持（以 Open WebUI 端为准）：</p>
+          <ul class="list-disc ml-6 mt-2 space-y-1">
+            <li>登录、注册、验证、账户异常（在合规允许范围内）。</li>
+            <li>站内会话交互不可用、页面功能故障、路由/模型列表异常、基础可用性问题。</li>
+            <li>Plus 开通、订单与计费展示类问题（不含第三方支付机构自身故障）。</li>
+            <li>平台公告中声明可受理的其他事项。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">20.3 明确不支持事项</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li><strong>AI 自身问题不支持：</strong>幻觉、瞎编、错误信息、低质量输出、跑题、风格不符合预期等。</li>
+            <li><strong>API 不支持：</strong>无论是应用程序是否支持、应用程序配置问题、API 开发/集成/调试问题、第三方 SDK/脚本使用问题，均不在服务范围。</li>
+            <li>提示词代写、业务方案代做、作业/考试代答、内容审核背书等。</li>
+            <li>用户侧网络环境、设备环境、系统故障、代理/VPN/证书问题等引起的使用异常。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">20.4 支持的前提条件</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>用户需提供必要信息以便定位：时间、问题现象、截图（脱敏）、相关页面路径等。</li>
+            <li>平台有权拒绝处理包含敏感信息、违法内容、辱骂骚扰或明显滥用的支持请求。</li>
+            <li>平台可能基于风控与合规要求，对部分问题仅提供有限解释或不予说明。</li>
+          </ul>
+        </section>
+
+        <section id="appendix" class="anchor-offset">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">附件：术语、示例与政策摘要</h2>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mb-1">A. 术语速览</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>QPS：每秒查询次数限制。</li>
+            <li>并发：同一时刻可处理的请求数。</li>
+            <li>配额：周期内可用的总调用量或额度。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">B. 使用边界示例</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>允许：自研产品后端以 Plus API 调用，用于内部业务功能（用户自行开发、自行维护）。</li>
+            <li>允许：在 Open WebUI 端进行正常对话、写作、学习与研发辅助。</li>
+            <li>不允许：将 Plus API 代理/转售给第三方，或封装为公共 API/SDK。</li>
+            <li>不允许：通过代理池并发轰击、脚本化批量生成、规避限流。</li>
+            <li>不允许：共享账号/密钥、外部代调用、将能力作为对外商业服务交付。</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">C. 日志与数据保留</h3>
+          <p>为风控与计费，平台可能保留必要日志与元数据，保留期限以隐私政策/控制台公示为准；依法需更长期限的，从其规定。</p>
+
+          <h3 class="text-xl font-semibold text-indigo-600 mt-4 mb-1">D. 变更日志（摘要）</h3>
+          <ul class="list-disc ml-6 space-y-1">
+            <li>2025-12-16：更新生效日期；新增客服与支持范围章节；明确 Plus 拥有 API 权限但 API 不在支持范围；强化“仅支持 Open WebUI 端可用性问题”的边界；补充风控、侵权与不可抗力条款。</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer class="mt-12 pt-6 border-t border-gray-200 text-center">
+        <p class="text-gray-600">如对本协议有任何疑问或建议，请联系平台客服加入QQ群 <span class="font-semibold">180522359</span>。</p>
+        <p class="text-sm text-gray-400 mt-2">继续使用即代表您已阅读并同意本协议的全部内容。</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
