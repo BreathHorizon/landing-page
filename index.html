@@ -295,12 +295,22 @@
   <div id="line-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeLineModal()"></div>
     <div class="relative bg-white dark:bg-dark-card border border-stone-200 dark:border-dark-border w-full max-w-md rounded-2xl shadow-2xl p-6 modal-enter">
-      <div class="flex justify-between items-center mb-6">
+      <div class="flex justify-between items-center mb-4">
         <h3 id="modal-title" class="font-serif font-bold text-xl text-breath-text dark:text-dark-text text-left">选择接入线路</h3>
         <button onclick="closeLineModal()" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-white/5 flex items-center justify-center text-stone-500 hover:text-breath-text transition-colors"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div id="modal-content-area" class="space-y-3"></div>
-      <div class="mt-6 text-center text-[10px] text-stone-400"><p>系统将自动为您推荐延迟最低的线路</p></div>
+
+      <!-- 动态进度 Banner -->
+      <div id="modal-status-banner" class="mb-4 px-4 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2 transition-all duration-300 bg-stone-100 text-stone-500 dark:bg-white/5 dark:text-stone-400 border border-stone-200/50 dark:border-white/5">
+        <i id="status-icon" class="fa-solid fa-circle-notch fa-spin"></i>
+        <span id="status-text">正在初始化检测...</span>
+      </div>
+
+      <div id="modal-content-area" class="space-y-3 max-h-[60vh] overflow-y-auto no-scrollbar"></div>
+
+      <div class="mt-4 text-center text-[10px] text-stone-400 dark:text-stone-500 opacity-80 border-t border-stone-100 dark:border-white/5 pt-4">
+        <p>线路延迟仅供参考，请按需选择线路</p>
+      </div>
     </div>
   </div>
 
@@ -326,6 +336,9 @@
     const modal = document.getElementById('line-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalArea = document.getElementById('modal-content-area');
+    const statusBanner = document.getElementById('modal-status-banner');
+    const statusText = document.getElementById('status-text');
+    const statusIcon = document.getElementById('status-icon');
 
     const configs = {
       chat: {
@@ -351,6 +364,12 @@
     function openLineModal(type) {
       const config = configs[type];
       modalTitle.textContent = config.title;
+      
+      // 重置 Banner 状态
+      statusBanner.className = "mb-4 px-4 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2 transition-all duration-300 bg-stone-100 text-stone-500 dark:bg-white/5 dark:text-stone-400 border border-stone-200/50 dark:border-white/5";
+      statusIcon.className = "fa-solid fa-circle-notch fa-spin";
+      statusText.textContent = `正在检测线路速度 0/${config.routes.length}`;
+
       modalArea.innerHTML = config.routes.map(r => `
         <a href="https://${r.domain}" target="_blank" id="route-${r.id}" class="block bg-stone-50 dark:bg-white/5 border border-stone-200 dark:border-white/5 hover:border-breath-text dark:hover:border-white/30 rounded-xl p-4 transition-all duration-200 group relative">
             <div class="flex items-center justify-between">
@@ -360,7 +379,7 @@
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
-                            <span class="font-bold text-breath-text dark:text-dark-text">${r.name}</span>
+                            <span class="font-bold text-breath-text dark:text-dark-text text-sm">${r.name}</span>
                             <span id="badge-${r.id}" class="hidden bg-green-500 text-white text-[9px] px-1.5 py-0.5 rounded font-bold">推荐</span>
                         </div>
                         <span class="text-[10px] text-stone-500 font-mono">${r.domain}</span>
@@ -380,17 +399,23 @@
 
     async function checkLatencies(routes) {
         const results = [];
+        let completed = 0;
+
         for (const r of routes) {
             const start = Date.now();
             let latency = -1;
             try {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 3000);
+                // 尝试请求 favicon 或极小资源
                 await fetch(`https://${r.domain}/favicon.ico?t=${start}`, { mode: 'no-cors', signal: controller.signal });
                 clearTimeout(timeoutId);
                 latency = Date.now() - start;
             } catch (e) { latency = -1; }
             
+            completed++;
+            statusText.textContent = `正在检测线路速度 ${completed}/${routes.length}`;
+
             results.push({ ...r, latency });
             const pingEl = document.getElementById(`ping-${r.id}`);
             if (pingEl) {
@@ -403,6 +428,12 @@
                 }
             }
         }
+
+        // 完成检测后的 UI 更新
+        statusText.textContent = "线路检测完毕";
+        statusIcon.className = "fa-solid fa-circle-check";
+        statusBanner.className = "mb-4 px-4 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2 transition-all duration-300 bg-green-500/10 text-green-600 dark:bg-green-500/20 dark:text-green-400 border border-green-500/20";
+
         const valid = results.filter(r => r.latency !== -1);
         if (valid.length > 0) {
             const best = valid.reduce((p, c) => p.latency < c.latency ? p : c);
@@ -410,6 +441,8 @@
             if (badge) badge.classList.remove('hidden');
         }
     }
+
+    document.addEventListener('keydown', e => { if (e.key === "Escape") closeLineModal(); });
   </script>
 </body>
 </html>
