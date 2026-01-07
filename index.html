@@ -207,27 +207,60 @@
 
     <!-- 特性 Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-in-up delay-300">
+      <!-- 特性 1: 成人模式 -->
       <div class="bg-white dark:bg-dark-card border border-breath-red/20 dark:border-breath-red/10 rounded-2xl p-6 hover:border-breath-red transition-all relative overflow-hidden">
+        <div class="absolute -right-4 -bottom-4 w-32 h-32 bg-breath-red/5 rounded-full blur-2xl"></div>
         <div class="flex items-center gap-3 mb-4">
           <div class="w-8 h-8 rounded-lg bg-breath-red/10 flex items-center justify-center text-breath-red"><i class="fa-solid fa-mask"></i></div>
           <h3 class="font-serif font-bold text-lg text-breath-text dark:text-dark-text">无拘束成人模式</h3>
           <span class="text-[10px] bg-breath-red text-white px-1.5 py-0.5 rounded ml-auto">UNRESTRICTED</span>
         </div>
         <p class="text-sm text-breath-gray dark:text-stone-400 mb-4 leading-relaxed">
-          内置 Gemini, DeepSeek, GLM 等特殊版本。已提前破线，解除安全限制，<span class="text-breath-red font-medium">可询问任何问题</span>。
+          内置 Gemini, DeepSeek, GLM 等特殊微调版本。已提前破线，解除安全限制，<span class="text-breath-red font-medium">可询问任何问题</span>。
         </p>
         <div class="flex flex-wrap gap-2 text-[10px]">
           <span class="px-2 py-1 rounded bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/5">Jailbroken</span>
           <span class="px-2 py-1 rounded bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/5">NSFW</span>
         </div>
       </div>
-      <!-- 其他特性省略，保持与原代码结构一致 -->
+
+      <!-- 特性 2: 开发者生态 -->
       <div class="bg-white dark:bg-dark-card border border-stone-200 dark:border-dark-border rounded-2xl p-6 hover:border-blue-400/50 transition-all">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-500"><i class="fa-solid fa-code"></i></div>
           <h3 class="font-serif font-bold text-lg text-breath-text dark:text-dark-text">开发者生态</h3>
         </div>
-        <p class="text-sm text-breath-gray dark:text-stone-400">完全兼容 OpenAI 协议，支持 QQ / TG / Discord 机器人生态接入。</p>
+        <p class="text-sm text-breath-gray dark:text-stone-400 mb-4 leading-relaxed">
+          <span class="text-breath-gold font-bold">超低价格</span> 接入。完全兼容 OpenAI 协议，完美支持 QQ / TG / Discord 机器人生态。
+        </p>
+        <a href="https://doc.breathai.top" class="text-xs text-blue-500 hover:underline">查看接入文档 &rarr;</a>
+      </div>
+
+      <!-- 特性 3: 模型矩阵 -->
+      <div class="bg-white dark:bg-dark-card border border-stone-200 dark:border-dark-border rounded-2xl p-6 hover:border-breath-gold/50 transition-all">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fa-solid fa-microchip"></i></div>
+          <h3 class="font-serif font-bold text-lg text-breath-text dark:text-dark-text">全能模型矩阵</h3>
+        </div>
+        <p class="text-sm text-breath-gray dark:text-stone-400 mb-3 leading-relaxed">
+          聚合全球顶尖算力，无需单独订阅。
+        </p>
+        <div class="flex flex-wrap gap-2 font-mono text-[10px] uppercase">
+          <span class="border border-stone-200 dark:border-stone-700 px-2 py-1 rounded text-stone-500">Claude 4.5</span>
+          <span class="border border-stone-200 dark:border-stone-700 px-2 py-1 rounded text-stone-500">GPT-5.2</span>
+          <span class="border border-stone-200 dark:border-stone-700 px-2 py-1 rounded text-stone-500">Gemini 3</span>
+        </div>
+      </div>
+
+      <!-- 特性 4: 云同步 -->
+      <div class="bg-white dark:bg-dark-card border border-stone-200 dark:border-dark-border rounded-2xl p-6 hover:border-green-500/50 transition-all">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600"><i class="fa-solid fa-cloud"></i></div>
+          <h3 class="font-serif font-bold text-lg text-breath-text dark:text-dark-text">全端云同步</h3>
+        </div>
+        <p class="text-sm text-breath-gray dark:text-stone-400 leading-relaxed">
+          基于 Open WebUI 架构，聊天记录实时漫游。无论是手机还是电脑，灵感随时延续。
+        </p>
       </div>
     </div>
   </main>
