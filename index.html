@@ -126,7 +126,7 @@
         <i class="fa-solid fa-tower-cell text-amber-500 mt-0.5 sm:mt-0"></i>
         <div class="flex-1 text-sm text-amber-900 dark:text-amber-100/90 leading-relaxed">
           <span class="font-bold mr-1">网络公告：</span>
-          <span class="opacity-90">武汉及江苏地区用户如遇主站访问缓慢，请优先点击下方 <span class="font-bold underline decoration-amber-400 decoration-2">开始聊天</span> 并在弹窗中选择 Cloudflare 线路访问。</span>
+          <span class="opacity-90">武汉及江苏地区用户如遇主站访问缓慢，请优先点击下方 <span class="font-bold underline decoration-amber-400 decoration-2">开始聊天</span> 并在弹窗中选择 Cloudflare 优选线路访问。</span>
         </div>
         <button onclick="document.getElementById('notice-banner').style.display='none'" class="text-amber-400 hover:text-amber-600 dark:hover:text-amber-100 p-1">
           <i class="fa-solid fa-xmark"></i>
@@ -327,7 +327,8 @@
         title: "选择对话线路",
         routes: [
           { id: 'chat-main', name: '官方主线路', domain: 'ask.ling.rest', icon: 'fa-globe', set: 'fa-solid', color: 'text-breath-text dark:text-white' },
-          { id: 'chat-cf', name: 'Cloudflare 加速', domain: 'ask-cf.ling.rest', icon: 'fa-cloudflare', set: 'fa-brands', color: 'text-cf-orange' }
+          { id: 'chat-cf-std', name: 'Cloudflare 普通节点', domain: 'ask-cf.ling.rest', icon: 'fa-cloudflare', set: 'fa-brands', color: 'text-cf-orange' },
+          { id: 'chat-cf-premium', name: 'Cloudflare 优选节点', domain: 'ask-saas.ling.rest', icon: 'fa-bolt-lightning', set: 'fa-solid', color: 'text-amber-500' }
         ]
       },
       buy: {
