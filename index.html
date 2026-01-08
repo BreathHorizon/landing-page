@@ -427,7 +427,7 @@
             try {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 3000);
-                await fetch(`https://${r.domain}/favicon.ico?t=${start}`, { mode: 'no-cors', signal: controller.signal });
+                await fetch(`https://${r.domain}/static/splash-dark.png?t=${start}`, { mode: 'no-cors', signal: controller.signal });
                 clearTimeout(timeoutId);
                 latency = Date.now() - start;
             } catch (e) { latency = -1; }
